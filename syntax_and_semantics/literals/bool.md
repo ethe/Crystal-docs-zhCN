@@ -5,6 +5,6 @@
 
 
 ```crystal
-true  # A Bool that is true
-false # A Bool that is false
+true  # 一个代表“真”的布尔值
+false # 一个代表“假”的布尔值
 ```
