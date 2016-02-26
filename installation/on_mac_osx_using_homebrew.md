@@ -15,7 +15,7 @@ brew install crystal-lang --with-llvm
 
 ## 解决在 OSX 10.11 (El Capitan) 下的问题
 
-如果你得到一下错误信息：
+如果你得到以下错误信息：
 
 ```
 ld: library not found for -levent
