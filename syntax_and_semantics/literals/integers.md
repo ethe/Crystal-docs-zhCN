@@ -1,13 +1,10 @@
-# Integers
+# 整型（Integers）
 
-There are four signed integer types: [Int8](http://crystal-lang.org/api/Int8.html), [Int16](http://crystal-lang.org/api/Int16.html), [Int32](http://crystal-lang.org/api/Int32.html) and [Int64](http://crystal-lang.org/api/Int64.html), being able to represent numbers of 8, 16, 32 and 64 bits respectively.
+Crystal 内置有四种整数类型：[Int8](http://crystal-lang.org/api/Int8.html)，[Int16](http://crystal-lang.org/api/Int16.html)，[Int32](http://crystal-lang.org/api/Int32.html) 和 [Int64](http://crystal-lang.org/api/Int64.html)，依次代表8,16,32,64位数字。
 
-There are four unsigned integer types: [UInt8](http://crystal-lang.org/api/UInt8.html), [UInt16](http://crystal-lang.org/api/UInt16.html), [UInt32](http://crystal-lang.org/api/UInt32.html) and [UInt64](http://crystal-lang.org/api/UInt64.html).
+Crystal 内置有四中无符号整数类型：[UInt8](http://crystal-lang.org/api/UInt8.html)，[UInt16](http://crystal-lang.org/api/UInt16.html)，[UInt32](http://crystal-lang.org/api/UInt32.html) 和 [UInt64](http://crystal-lang.org/api/UInt64.html)。
 
-An integer literal is an optional `+` or `-` sign, followed by
-a sequence of digits and underscores, optionally followed by a suffix.
-If no suffix is present, the literal's type is the lowest between `Int32`, `Int64` and `UInt64`
-in which the number fits:
+一个整型文本前可以声明 `+` 或者 `-`，在文本后也可以加下划线与后缀表明其类型。如果没有显示地给出整数的类型，编译器将在`Int32`, `Int64` 和 `UInt64`中自动选择能满足定义这个整数需要的最小类型：
 
 ```crystal
 1      # Int32
@@ -29,27 +26,25 @@ in which the number fits:
 9223372036854775808 # UInt64
 ```
 
-The underscore `_` before the suffix is optional.
-
-Underscores can be used to make some numbers more readable:
+后缀之前的下划线 `_` 不是必需的，但是可以让数字变得更好读：
 
 ```crystal
 1_000_000 # better than 1000000
 ```
 
-Binary numbers start with `0b`:
+二进制数以 `0b` 开头：
 
 ```crystal
 0b1101 # == 13
 ```
 
-Octal numbers start with a `0o`:
+八进制数以 `0o` 开头：
 
 ```crystal
 0o123 # == 83
 ```
 
-Hexadecimal numbers start with `0x`:
+十六进制数以 `0x` 开头
 
 ```crystal
 0xFE012D # == 16646445
