@@ -1,4 +1,4 @@
-# 字符型（Char）
+# Char
 
 A [Char](http://crystal-lang.org/api/Char.html) represents a [Unicode](http://en.wikipedia.org/wiki/Unicode) [code point](http://en.wikipedia.org/wiki/Code_point).
 It occupies 32 bits.
