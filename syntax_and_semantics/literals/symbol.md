@@ -1,4 +1,4 @@
-# Symbol
+# 符号 (Symbol)
 
 [Symbol](http://crystal-lang.org/api/Symbol.html) 是一个非数字命名的常量。
 
@@ -6,14 +6,14 @@
 :hello
 :good_bye
 
-# 包含空格
+# 包含空格：
 :"symbol with spaces"
 
-# 以问号或叹号结尾
+# 以问号或叹号结尾：
 :question?
 :exclamation!
 
-# 以及操作符
+# 以及操作符：
 :+
 :-
 :*
