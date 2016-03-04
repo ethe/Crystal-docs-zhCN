@@ -1,6 +1,6 @@
-# Tuple
+# 元祖 (Tuple)
 
-A [Tuple](http://crystal-lang.org/api/Tuple.html) is typically created with a tuple literal:
+通常采用文本方式创建 [元祖](http://crystal-lang.org/api/Tuple.html):
 
 ```crystal
 tuple = {1, "hello", 'x'} # Tuple(Int32, String, Char)
@@ -9,4 +9,4 @@ tuple[1]                  #=> "hello" (String)
 tuple[2]                  #=> 'x'     (Char)
 ```
 
-To create an empty tuple use [Tuple.new](http://crystal-lang.org/api/Tuple.html#new%28%2Aargs%29-class-method).
+使用 [Tuple.new](http://crystal-lang.org/api/Tuple.html#new%28%2Aargs%29-class-method) 创建一个空元祖。
