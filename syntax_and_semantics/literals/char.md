@@ -1,9 +1,8 @@
 # Char
 
-A [Char](http://crystal-lang.org/api/Char.html) represents a [Unicode](http://en.wikipedia.org/wiki/Unicode) [code point](http://en.wikipedia.org/wiki/Code_point).
-It occupies 32 bits.
+一个 [字符](http://crystal-lang.org/api/Char.html) 代表了一个 [Unicode](http://en.wikipedia.org/wiki/Unicode) [码位](http://en.wikipedia.org/wiki/Code_point)。一个字符占32位。
 
-It is created by enclosing an UTF-8 character in single quotes.
+用单引号包裹一个UTF-8字符即可创建。
 
 ```crystal
 'a'
@@ -11,9 +10,10 @@ It is created by enclosing an UTF-8 character in single quotes.
 '0'
 '_'
 'あ'
+'安'
 ```
 
-You can use a backslash to denote some characters:
+你可以通过转义符（反斜杠）来表示一些特殊含义的字符：
 
 ```crystal
 '\'' # single quote
@@ -26,7 +26,7 @@ You can use a backslash to denote some characters:
 '\v' # vertical tab
 ```
 
-You can use a backslash followed by at most three digits to denote a code point written in octal:
+你可以使用转义符接至多三个数字来表示一个八进制码位：
 
 ```crystal
 '\101' # == 'A'
@@ -35,13 +35,13 @@ You can use a backslash followed by at most three digits to denote a code point 
 '\1'   # code point 1
 ```
 
-You can use a backslash followed by an *u* and four hexadecimal characters to denote a unicode codepoint written:
+你可以使用一个转义符后接*u*和四个十六进制字符来表示一个unicode码位
 
 ```crystal
 '\u0041' # == 'A'
 ```
 
-Or you can use curly braces and specify up to six hexadecimal numbers (0 to 10FFFF):
+或者你可以用大括号包裹十六进制数来表示（0到10FFFF）
 
 ```crystal
 '\u{41}'    # == 'A'
