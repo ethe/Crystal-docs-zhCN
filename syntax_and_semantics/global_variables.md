@@ -1,9 +1,9 @@
-# Global variables
+# 全局变量
 
-Global variables start with a dollar sign (`$`). They are declared when you first assign them a value.
+全局变量是以 `$` 符号开头，当第一次赋值时候就完成变量声明。
 
 ```crystal
 $year = 2014
 ```
 
-Their type is the combined type of all expressions that were assigned to them. Additionally, if your program reads a global variable before it was ever assigned a value it will also have the `Nil` type.
+它的类型是与所有针对它的赋值表达式有关。如果在使用之前还未赋值，那么它的默认值将是 `Nil` 类型。
