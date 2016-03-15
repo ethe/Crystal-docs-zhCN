@@ -1,18 +1,18 @@
-# Multiple assignment
+# 多重赋值
 
-You can declare/assign multiple variables at the same time by separating expressions with a comma (`,`):
+你可以使用逗号（`,`）同时声明多个变量或者给多个变量赋值：
 
 ```crystal
 name, age = "Crystal", 1
 
-# The above is the same as this:
+# 上述代码等同于:
 temp1 = "Crystal"
 temp2 = 1
 name  = temp1
 age   = temp2
 ```
 
-Note that because expressions are assigned to temporary variables it is possible to exchange variables’ contents in a single line:
+注意，因为表达式赋值的时候会使用临时变量，所以变量交换可以简单的写成一行代码：
 
 ```crystal
 a = 1
@@ -22,45 +22,46 @@ a #=> 2
 b #=> 1
 ```
 
-If the right-hand side contains just one expression, it is considered an indexed type and the following syntax sugar applies:
+如果等号右边是一个表达式，而且它的结果是下标指示器类型，那么还可以使用以下语法糖：
+
 
 ```crystal
 name, age, source = "Crystal,1,github".split(",")
 
-# The above is the same as this:
+# 上述代码等同于:
 temp = "Crystal,1,github".split(",")
 name   = temp[0]
 age    = temp[1]
 source = temp[2]
 ```
 
-If the left-hand side contains just one variable, the right-hand side is considered an array:
+如果等号左边只有一个变量，右边可以被视为一个数组：
 
 ```crystal
 names = "John", "Peter", "Jack"
 
-# The above is the same as:
+# 上述代码等同于:
 names = ["John", "Peter", "Jack"]
 ```
 
-Multiple assignment is also available to methods that end with `=`:
+多重赋值同样适用于以 `=` 结尾的方法：
 
 ```crystal
 person.name, person.age = "John", 32
 
-# Same as:
+# 等同于:
 temp1 = "John"
 temp2 = 32
 person.name = temp1
 person.age = temp2
 ```
 
-And it is also available to indexers (`[]=`):
+而且它同样适用于下标指示器 (`[]=`):
 
 ```crystal
 objects[1], objects[2] = 3, 4
 
-# Same as:
+# 等同于:
 temp1 = 3
 temp2 = 4
 objects[1] = temp1
