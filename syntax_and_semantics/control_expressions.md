@@ -1,3 +1,3 @@
-# Control expressions
+# 控制表达式
 
-Before talking about control expressions we need to know what *truthy* and *falsey* values are.
+在讨论控制表达式之前，我们先来了解一下 *truthy* 和 *falsey* 。
