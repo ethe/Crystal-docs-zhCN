@@ -1,11 +1,11 @@
-# Ternary if
+# 三元 `if`
 
-The ternary `if` allows writing an `if` in a shorter way:
+三元 `if` 可以写成一种更简短的方式:
 
 ```crystal
 a = 1 > 2 ? 3 : 4
 
-# The above is the same as:
+# 上述代码等价于:
 a = if 1 > 2
       3
     else
