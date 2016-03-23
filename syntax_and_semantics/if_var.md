@@ -1,69 +1,68 @@
-# if var
+# if 变量
 
-If a variable is the condition of an `if`, inside the `then` branch the variable will be considered as not having the `Nil` type:
+如果一个变量与 `if` 条件有关，经过 `then` 分之之后，此变量将不再只是 `Nil` 类型，与其返回值有关。
 
 ```crystal
 a = some_condition ? nil : 3
-# a is Int32 or Nil
+# a 是 Int32 或 Nil
 
 if a
-  # Since the only way to get here is if a is truthy,
-  # a can't be nil. So here a is Int32.
+  # 因为运行到这里 a 必然为 truthy,
+  # a 不可能为 nil, 所有这里 a 必定为 Int32。
   a.abs
 end
 ```
 
-This also applies when a variable is assigned in an `if`'s condition:
+也同样适用于在 `if` 条件中进行变量赋值:
 
 ```crystal
 if a = some_expression
-  # here a is not nil
+  # a 不为 nil
 end
 ```
 
-This logic also applies if there are ands (`&&`) in the condition:
+这种逻辑同样适用于 `if` 条件的与操作(`&&`):
 
 ```crystal
 if a && b
-  # here both a and b are guaranteed not to be Nil
+  # 这里，a 和 b 都不为 Nil
 end
 ```
 
-Here, the right-hand side of the `&&` expression is also guaranteed to have `a` as not `Nil`.
+这里, 右边的 `&&` 表达式确保 `a` 为非 `Nil` 类型。
 
-Of course, reassigning a variable inside the `then` branch makes that variable have a new type based on the expression assigned.
+当然, 在 `then` 分之里面对变量进行再赋值，那么变量类型将取决于赋值的表达式。
 
-The above logic **doesn’t** work with instance variables, class variables or global variables:
+以上逻辑将 **不适用** 于类实例变量, 类变量以及全局变量:
 
 ```crystal
 if @a
-  # here @a can be nil
+  # 这里 @a 有可能为 nil
 end
 ```
 
-This is because any method call could potentially affect that instance variable, rendering it `nil`. Another reason is that another thread could change that instance variable after checking the condition.
+这是因为所有方法调用都有可能改变实例变量的值， 被重新赋值为 `nil`。 另外一个原因是其他线程在检查这个条件的时候改变这个实例变量。
 
-To do something with `@a` only when it is not `nil` you have two options:
+你有两种方式确保使用一个非 `nil` 的实例变量 `@a` :
 
 ```crystal
-# First option: assign it to a variable
+# 第一种: 赋值给一局部变量
 if a = @a
-  # here a can't be nil
+  # 这里不为空
 end
 
-# Second option: use `Object#try` found in the standard library
+# 第二种: 使用标准库的 `Object#try`
 @a.try do |a|
-  # here a can't be nil
+  # 这里也不为空
 end
 ```
 
-That logic also doesn't work with proc and method calls, including getters and properties, because nilable (or, more generally, union-typed) procs and methods aren't guaranteed to return the same more-specific type on two successive calls.
+上述逻辑不适用于代码块和方法调用, 包括 getters 和属性, 因为在两个连续调用中，nilable (或者更一般地，集合型) 的过程和方法并不保证能返回相同的更特定的类型。
 
 ```crystal
-if method # first call to a method that can return Int32 or Nil
-          # here we know that the first call did not return Nil
-  method  # second call can still return Int32 or Nil
+if method # 第一个方法调用返回 Int32 或者 Nil
+          # 这里我们知道第一个方法调用返回不为空
+  method  # 第二个方法调用返回也为 Int32 或者 Nil
 end
 ```
-
-The techniques described above for instance variables will also work for proc and method calls.
+上述实例变量技术描述也同样适用于代码块和方法调用。
